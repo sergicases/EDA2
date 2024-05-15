@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <QueueBasedTurns.h>
+#include <ScenarioGraph.h>
 
 // Define a simple character structure
 struct Character {
@@ -91,4 +93,3 @@ int main() {
 
     return 0;
 }
-//ghdsuhiuahdpo
