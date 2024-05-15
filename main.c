@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <QueueBasedTurns.h>
-#include <ScenarioGraph.h>
 
 // Define a simple character structure
 struct Character {
@@ -14,8 +12,14 @@ struct Character {
 // Function to start a new game
 void startNewGame() {
     printf("Welcome to Chrono Nexus!\n");
-    // Initialize game state (e.g., load saved data or set default values)
-    // ...
+    void initializeGameState(struct Character* player){
+    // Set default values for the player
+    strcpy(player->name, "Player");
+    player->health = 100;
+    player->attack = 10;
+    // You can add more initialization logic here if needed
+    printf("Game state initialized.\n");
+}
 }
 
 // Function to configure character
