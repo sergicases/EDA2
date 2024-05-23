@@ -1,0 +1,271 @@
+{
+    "abilities": [
+        {
+            "name": "GolpeBasico",
+            "single_use": false,
+            "mp": 0,
+            "effect": {
+                "type": "normal_damage",
+                "element": "normal",
+                "power": 8
+            }
+        },
+        {
+            "name": "Piro",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "fire",
+                "power": 12
+            }
+        },
+        {
+            "name": "Hielo",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "ice",
+                "power": 12
+            }
+        },
+        {
+            "name": "Electro",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "lightning",
+                "power": 12
+            }
+        },
+        {
+            "name": "Aero",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "wind",
+                "power": 12
+            }
+        },
+        {
+            "name": "Cura",
+            "single_use": false,
+            "mp": 6,
+            "effect": {
+                "type": "normal_heal",
+                "power": 16
+            }
+        },
+        {
+            "name": "Ejercitar",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "atk",
+                "modification": 5,
+                "to_enemy": false
+            }
+        },
+        {
+            "name": "MenteClara",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "m_atk",
+                "modification": 5,
+                "to_enemy": false
+            }
+        },
+        {
+            "name": "Amedrentar",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "def",
+                "modification": -5,
+                "to_enemy": true
+            }
+        },
+        {
+            "name": "BrumaMental",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "m_def",
+                "modification": -5,
+                "to_enemy": true
+            }
+        },
+        {
+            "name": "GolpeDeTiempo",
+            "single_use": true,
+            "mp": 0,
+            "effect": {
+                "type": "custom",
+                "custom_id": 0
+            }
+        },
+        {
+            "name": "Salpicar",
+            "single_use": false,
+            "mp": 3,
+            "effect": {
+                "type": "normal_damage",
+                "element": "water",
+                "power": 10
+            }
+        },
+        {
+            "name": "Polucion",
+            "single_use": false,
+            "mp": 6,
+            "effect": {
+                "type": "fixed_damage",
+                "element": "poison",
+                "fixed_value": 20
+            }
+        }
+    ],
+
+
+    "enemy_models": [
+        {
+            "name": "GuardHound",
+            "stats": {
+                "hp": 36,
+                "mp": 10,
+                "atk": 8,
+                "def": 4,
+                "m_atk": 5,
+                "m_def": 2
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "resistant",
+                "ice": "weak",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "weak",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["GolpeBasico", "GolpeBasico", "GolpeBasico", "Piro"]
+        },
+        {
+            "name": "Blugu",
+            "stats": {
+                "hp": 32,
+                "mp": 15,
+                "atk": 4,
+                "def": 3,
+                "m_atk": 9,
+                "m_def": 5
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "immune",
+                "ice": "resistant",
+                "lightning": "weak",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "resistant",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["GolpeBasico", "GolpeBasico", "Salpicar", "BrumaMental"]
+        },
+        {
+            "name": "Smogger",
+            "stats": {
+                "hp": 48,
+                "mp": 20,
+                "atk": 7,
+                "def": 4,
+                "m_atk": 7,
+                "m_def": 4
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "normal",
+                "ice": "normal",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "absorb",
+                "water": "normal",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["GolpeBasico", "GolpeBasico", "Amedrentar", "Polucion"]
+        }
+    ],
+
+
+
+    "scenarios": [
+        {
+            "name": "Midgard",
+            "description": "Bla bla bla...",
+            "decisions": [
+                {
+                    "question_text": "Question of decision...",
+                    "options": [
+                        {
+                            "response_text": "Respuesta 1",
+                            "narrative_before_battle_text": "Antes de la batalla 1",
+                            "narrative_after_battle_text": "Despues de la batalla 1",
+                            "enemies": ["GuardHound", "GuardHound"]
+                        },
+                        {
+                            "response_text": "Respuesta 2",
+                            "narrative_before_battle_text": "Antes de la batalla 2",
+                            "narrative_after_battle_text": "Despues de la batalla 2",
+                            "enemies": ["Blugu"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Kalm",
+            "description": "Bla bla bla... Pero esta vez en Kalm",
+            "decisions": [
+                {
+                    "question_text": "Question of decision 1... Pero de Kalm",
+                    "options": [
+                        {
+                            "response_text": "Respuesta 1 de la decision 1 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 1 de la decision 1 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 1 de la decision 1 de kalm",
+                            "enemies": ["GuardHound", "GuardHound"]
+                        }
+                    ]
+                },
+                {
+                    "question_text": "Question of decision 2... de Kalm",
+                    "options": [
+                        {
+                            "response_text": "Respuesta 1 de la decision 2 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 1 de la decision 2 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 1 de la decision 2 de kalm",
+                            "enemies": ["Blugu", "GuardHound"]
+                        },
+                        {
+                            "response_text": "Respuesta 2 de la decision 2 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 2 de la decision 2 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 2 de la decision 2 de kalm",
+                            "enemies": ["Smogger", "Smogger"]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
