@@ -1,7 +1,7 @@
 #include "properties.h"
 #include "json_utils.h"
 
-#define STAT_NAME_HEALTH_POINTS "hp"
+#define name_health_points "hp"
 #define STAT_NAME_MAGICAL_POINTS "mp"
 #define STAT_NAME_PHYSICAL_ATTACK "atk"
 #define STAT_NAME_PHYSICAL_DEFENSE "def"
@@ -11,13 +11,13 @@
 Stat stat_from_json(const cJSON* json)
 {
     if (json == NULL)
-        return STAT_HEALTH_POINTS;
+        return health_points;
 
     if (cJSON_IsNumber(json))
     {
         switch (json->valueint)
         {
-            case STAT_HEALTH_POINTS:
+            case health_points:
             case STAT_MAGICAL_POINTS:
             case STAT_PHYSICAL_ATTACK:
             case STAT_PHYSICAL_DEFENSE:
@@ -28,7 +28,7 @@ Stat stat_from_json(const cJSON* json)
     }
     else if (cJSON_IsString(json))
     {
-        if (strcmp(json->valuestring, STAT_NAME_HEALTH_POINTS) == 0) return STAT_HEALTH_POINTS;
+        if (strcmp(json->valuestring, STAT_NAME_HEALTH_POINTS) == 0) return health_points;
         if (strcmp(json->valuestring, STAT_NAME_MAGICAL_POINTS) == 0) return STAT_MAGICAL_POINTS;
         if (strcmp(json->valuestring, STAT_NAME_PHYSICAL_ATTACK) == 0) return STAT_PHYSICAL_ATTACK;
         if (strcmp(json->valuestring, STAT_NAME_PHYSICAL_DEFENSE) == 0) return STAT_PHYSICAL_DEFENSE;
@@ -36,14 +36,14 @@ Stat stat_from_json(const cJSON* json)
         if (strcmp(json->valuestring, STAT_NAME_MAGICAL_DEFENSE) == 0) return STAT_MAGICAL_DEFENSE;
     }
 
-    return STAT_HEALTH_POINTS;
+    return health_points;
 }
 
 cJSON* stat_to_json(Stat stat)
 {
     switch (stat)
     {
-        case STAT_HEALTH_POINTS: return cJSON_CreateString(STAT_NAME_HEALTH_POINTS);
+        case health_points: return cJSON_CreateString(name_health_points);
         case STAT_MAGICAL_POINTS: return cJSON_CreateString(STAT_NAME_MAGICAL_POINTS);
         case STAT_PHYSICAL_ATTACK: return cJSON_CreateString(STAT_NAME_PHYSICAL_ATTACK);
         case STAT_PHYSICAL_DEFENSE: return cJSON_CreateString(STAT_NAME_PHYSICAL_DEFENSE);
@@ -124,7 +124,7 @@ int stats_get(const Stats* stats, Stat stat)
 {
     switch(stat)
     {
-        case STAT_HEALTH_POINTS: return stats_get_hp(stats);
+        case health_points: return stats_get_hp(stats);
         case STAT_MAGICAL_POINTS: return stats_get_mp(stats);
         case STAT_PHYSICAL_ATTACK: return stats_get_atk(stats);
         case STAT_PHYSICAL_DEFENSE: return stats_get_def(stats);
@@ -140,7 +140,7 @@ void stats_set(Stats* stats, Stat stat, int value)
 {
     switch (stat)
     {
-        case STAT_HEALTH_POINTS: stats_set_hp(stats, value); break;
+        case health_points: stats_set_hp(stats, value); break;
         case STAT_MAGICAL_POINTS: stats_set_mp(stats, value); break;
         case STAT_PHYSICAL_ATTACK: stats_set_atk(stats, value); break;
         case STAT_PHYSICAL_DEFENSE: stats_set_def(stats, value); break;
@@ -154,7 +154,7 @@ const char* stats_name(Stat stat)
 {
     switch (stat)
     {
-        case STAT_HEALTH_POINTS: return "Salud";
+        case health_points: return "Salud";
         case STAT_MAGICAL_POINTS: return "Magia";
         case STAT_PHYSICAL_ATTACK: return "Ataque físico";
         case STAT_PHYSICAL_DEFENSE: return "Defensa física";

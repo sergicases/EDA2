@@ -5,8 +5,9 @@
 
 #define MIN_STAT_VALUE 1
 
+//We define the stats
 typedef enum {
-    STAT_HEALTH_POINTS,
+    health_points,
     STAT_MAGICAL_POINTS,
     STAT_PHYSICAL_ATTACK,
     STAT_PHYSICAL_DEFENSE,
