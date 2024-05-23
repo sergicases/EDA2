@@ -15,7 +15,7 @@ struct Skill {
 };
 
 // Define a struct for a Character
-struct Character {
+typedef struct Character {
     char name[50];
     int hp;
     int atk;
@@ -24,7 +24,7 @@ struct Character {
 };
 
 // Define a struct for an Enemy
-struct Enemy {
+typedef struct Enemy {
     char name[50];
     int hp;
     int atk;
