@@ -17,9 +17,9 @@ static void menu_main(Scenario* scenarios, size_t num_scenarios, AbilityPool* ab
 {
 	while (true)
 	{
-		printf("Menu principal\n\n");
-		printf("1 - Nueva Partida\n");
-		printf("2 - Salir\n");
+		printf("Main menu\n\n");
+		printf("1 - New game\n");
+		printf("2 - Exit\n");
 
 		int option = read_option();
 		if (option == 1)
