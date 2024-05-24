@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+        "options.h": "c",
+        "characters.h": "c",
+        "abilities.h": "c",
+        "menu_utils.h": "c",
+        "commons.h": "c",
+        "stdlib.h": "c",
+        "stdio.h": "c",
+        "stats.h": "c",
+        "scenario.h": "c"
+    }
+}
