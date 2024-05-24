@@ -7,7 +7,7 @@
 
 //We define the stats
 typedef enum {
-    health_points,
+    STAT_HEALTH_POINTS,
     STAT_MAGICAL_POINTS,
     STAT_PHYSICAL_ATTACK,
     STAT_PHYSICAL_DEFENSE,

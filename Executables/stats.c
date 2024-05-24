@@ -17,7 +17,7 @@ Stat stat_from_json(const cJSON* json)
     {
         switch (json->valueint)
         {
-            case health_points:
+            case STAT_HEALTH_POINTS:
             case STAT_MAGICAL_POINTS:
             case STAT_PHYSICAL_ATTACK:
             case STAT_PHYSICAL_DEFENSE:
