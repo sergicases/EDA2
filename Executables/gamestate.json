@@ -1,88 +1,88 @@
 {
     "abilities": [
         {
-            "name": "GolpeBasico",
+            "name": "BasicSwordSwing",
             "single_use": false,
             "mp": 0,
             "effect": {
                 "type": "normal_damage",
                 "element": "normal",
-                "power": 8
+                "power": 15
             }
         },
         {
-            "name": "Piro",
-            "single_use": false,
+            "name": "HeatSwordSwing",
+            "single_use": true,
             "mp": 4,
             "effect": {
                 "type": "normal_damage",
                 "element": "fire",
-                "power": 12
+                "power": 9
             }
         },
         {
-            "name": "Hielo",
+            "name": "ParalyzingSpell",
             "single_use": false,
-            "mp": 4,
+            "mp": 5,
             "effect": {
-                "type": "normal_damage",
+                "type": "stat_mod",
                 "element": "ice",
-                "power": 12
+                "power": 8
             }
         },
         {
-            "name": "Electro",
+            "name": "SquezzySwordSwing",
             "single_use": false,
             "mp": 4,
             "effect": {
                 "type": "normal_damage",
-                "element": "lightning",
-                "power": 12
+                "element": "posion",
+                "power": 9
             }
         },
         {
-            "name": "Aero",
+            "name": "AquaticSwordSwing",
             "single_use": false,
             "mp": 4,
             "effect": {
                 "type": "normal_damage",
-                "element": "wind",
-                "power": 12
+                "element": "water",
+                "power": 9
             }
         },
         {
-            "name": "Cura",
+            "name": "SpineShield",
             "single_use": false,
             "mp": 6,
             "effect": {
                 "type": "normal_heal",
-                "power": 16
+                "power": 12
             }
         },
         {
-            "name": "Ejercitar",
+            "name": "PassiveRegeneration",
             "single_use": false,
             "mp": 8,
             "effect": {
                 "type": "stat_mod",
                 "stat": "atk",
-                "modification": 5,
+                "modification": 7,
                 "to_enemy": false
             }
         },
         {
-            "name": "MenteClara",
+            "name": "ExtraLife",
             "single_use": false,
             "mp": 8,
             "effect": {
                 "type": "stat_mod",
                 "stat": "m_atk",
-                "modification": 5,
+                "modification": 7,
                 "to_enemy": false
             }
         },
         {
-            "name": "Amedrentar",
+            "name": "ParalyzingSpell",
             "single_use": false,
             "mp": 8,
             "effect": {
@@ -93,7 +93,7 @@
             }
         },
         {
-            "name": "BrumaMental",
+            "name": "Shield destroyer",
             "single_use": false,
             "mp": 8,
             "effect": {
@@ -104,7 +104,7 @@
             }
         },
         {
-            "name": "GolpeDeTiempo",
+            "name": "Time Strike",
             "single_use": true,
             "mp": 0,
             "effect": {
@@ -113,7 +113,7 @@
             }
         },
         {
-            "name": "Salpicar",
+            "name": "Splash",
             "single_use": false,
             "mp": 3,
             "effect": {
@@ -123,7 +123,7 @@
             }
         },
         {
-            "name": "Polucion",
+            "name": "Pollution",
             "single_use": false,
             "mp": 6,
             "effect": {
@@ -137,7 +137,7 @@
 
     "enemy_models": [
         {
-            "name": "GuardHound",
+            "name": "Temporal Wraiths",
             "stats": {
                 "hp": 36,
                 "mp": 10,
@@ -157,10 +157,10 @@
                 "wind": "normal",
                 "holy": "normal"
             },
-            "abilities": ["GolpeBasico", "GolpeBasico", "GolpeBasico", "Piro"]
+            "abilities": ["SquezzySwordSwing", "Pollution", "SpineShield", "Pollution"]
         },
         {
-            "name": "Blugu",
+            "name": "Cog Knight",
             "stats": {
                 "hp": 32,
                 "mp": 15,
@@ -180,10 +180,10 @@
                 "wind": "normal",
                 "holy": "normal"
             },
-            "abilities": ["GolpeBasico", "GolpeBasico", "Salpicar", "BrumaMental"]
+            "abilities": ["BasicSwordSwing", "BasicSwordSwing", "SpineShield", "SpineShield"]
         },
         {
-            "name": "Smogger",
+            "name": "Quantum Echoes",
             "stats": {
                 "hp": 48,
                 "mp": 20,
@@ -203,9 +203,34 @@
                 "wind": "normal",
                 "holy": "normal"
             },
-            "abilities": ["GolpeBasico", "GolpeBasico", "Amedrentar", "Polucion"]
+            "abilities": ["HeatSwordSwing", "HeatSwordSwing", "ParalyzingSpell", "ParalyzingSpell"]
+        },
+        {
+            "name": "Astral Sentinels",
+            "stats": {
+                "hp": 40,
+                "mp": 12,
+                "atk": 9,
+                "def": 5,
+                "m_atk": 6,
+                "m_def": 3
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "resistant",
+                "ice": "weak",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "weak",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["HeatSwordSwing", "HeatSwordSwing", "SpineShield", "ParalyzingSpell"]
         }
+
     ],
+    
 
 
 
