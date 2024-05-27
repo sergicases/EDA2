@@ -36,14 +36,14 @@ Stat stat_from_json(const cJSON* json)
         if (strcmp(json->valuestring, STAT_NAME_MAGICAL_DEFENSE) == 0) return STAT_MAGICAL_DEFENSE;
     }
 
-    return health_points;
+    return STAT_HEALTH_POINTS;
 }
 
 cJSON* stat_to_json(Stat stat)
 {
     switch (stat)
     {
-        case health_points: return cJSON_CreateString(name_health_points);
+        case STAT_HEALTH_POINTS: return cJSON_CreateString(STAT_NAME_HEALTH_POINTS);
         case STAT_MAGICAL_POINTS: return cJSON_CreateString(STAT_NAME_MAGICAL_POINTS);
         case STAT_PHYSICAL_ATTACK: return cJSON_CreateString(STAT_NAME_PHYSICAL_ATTACK);
         case STAT_PHYSICAL_DEFENSE: return cJSON_CreateString(STAT_NAME_PHYSICAL_DEFENSE);
@@ -124,7 +124,7 @@ int stats_get(const Stats* stats, Stat stat)
 {
     switch(stat)
     {
-        case health_points: return stats_get_hp(stats);
+        case STAT_HEALTH_POINTS: return stats_get_hp(stats);
         case STAT_MAGICAL_POINTS: return stats_get_mp(stats);
         case STAT_PHYSICAL_ATTACK: return stats_get_atk(stats);
         case STAT_PHYSICAL_DEFENSE: return stats_get_def(stats);
@@ -140,7 +140,7 @@ void stats_set(Stats* stats, Stat stat, int value)
 {
     switch (stat)
     {
-        case health_points: stats_set_hp(stats, value); break;
+        case STAT_HEALTH_POINTS: stats_set_hp(stats, value); break;
         case STAT_MAGICAL_POINTS: stats_set_mp(stats, value); break;
         case STAT_PHYSICAL_ATTACK: stats_set_atk(stats, value); break;
         case STAT_PHYSICAL_DEFENSE: stats_set_def(stats, value); break;
@@ -154,12 +154,12 @@ const char* stats_name(Stat stat)
 {
     switch (stat)
     {
-        case health_points: return "Salud";
+        case STAT_HEALTH_POINTS: return "Salud";
         case STAT_MAGICAL_POINTS: return "Magia";
-        case STAT_PHYSICAL_ATTACK: return "Ataque físico";
-        case STAT_PHYSICAL_DEFENSE: return "Defensa física";
-        case STAT_MAGICAL_ATTACK: return "Ataque mágico";
-        case STAT_MAGICAL_DEFENSE: return "Defensa mágica";
+        case STAT_PHYSICAL_ATTACK: return "Ataque f�sico";
+        case STAT_PHYSICAL_DEFENSE: return "Defensa f�sica";
+        case STAT_MAGICAL_ATTACK: return "Ataque m�gico";
+        case STAT_MAGICAL_DEFENSE: return "Defensa m�gica";
     }
     printf("[ERROR]: Invalid Stat Type\n");
     return "<Stat undefined>";
