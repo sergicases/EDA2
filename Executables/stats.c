@@ -1,7 +1,7 @@
-#include "properties.h"
+#include "stats.h"
 #include "json_utils.h"
 
-#define name_health_points "hp"
+#define STAT_NAME_HEALTH_POINTS "hp"
 #define STAT_NAME_MAGICAL_POINTS "mp"
 #define STAT_NAME_PHYSICAL_ATTACK "atk"
 #define STAT_NAME_PHYSICAL_DEFENSE "def"
@@ -11,7 +11,7 @@
 Stat stat_from_json(const cJSON* json)
 {
     if (json == NULL)
-        return health_points;
+        return STAT_HEALTH_POINTS;
 
     if (cJSON_IsNumber(json))
     {
@@ -28,7 +28,7 @@ Stat stat_from_json(const cJSON* json)
     }
     else if (cJSON_IsString(json))
     {
-        if (strcmp(json->valuestring, STAT_NAME_HEALTH_POINTS) == 0) return health_points;
+        if (strcmp(json->valuestring, STAT_NAME_HEALTH_POINTS) == 0) return STAT_HEALTH_POINTS;
         if (strcmp(json->valuestring, STAT_NAME_MAGICAL_POINTS) == 0) return STAT_MAGICAL_POINTS;
         if (strcmp(json->valuestring, STAT_NAME_PHYSICAL_ATTACK) == 0) return STAT_PHYSICAL_ATTACK;
         if (strcmp(json->valuestring, STAT_NAME_PHYSICAL_DEFENSE) == 0) return STAT_PHYSICAL_DEFENSE;
