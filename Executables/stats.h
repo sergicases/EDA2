@@ -1,13 +1,12 @@
-#ifndef PROPERTIES_H
-#define PROPERTIES_H
+#ifndef STATES_H
+#define STATES_H
 
 #include "commons.h"
 
 #define MIN_STAT_VALUE 1
 
-//We define the stats
 typedef enum {
-    health_points,
+    STAT_HEALTH_POINTS,
     STAT_MAGICAL_POINTS,
     STAT_PHYSICAL_ATTACK,
     STAT_PHYSICAL_DEFENSE,
@@ -88,4 +87,4 @@ void stats_mod_add(StatsModifications* mods, Stat stat, int amount);
 
 int stats_get_with_powerups(const Stats* stats, const StatsModifications* mods, Stat stat);
 
-#endif // PROPERTIES_H
+#endif // STATES_H
