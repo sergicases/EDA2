@@ -77,11 +77,11 @@ static void battle_ability_effect_normal_damage(Character* attacker, Character* 
 
 	int damage = battle_damage_character(attacker, target_def, points, element);
 	if (damage > 0)
-		printf("�%s causa %d puntos de da�o a %s!\n", attacker->name, points, target->name);
+		printf("%s deals %d damage point to %s!\n", attacker->name, points, target->name);
 	else if(damage < 0)
-		printf("�%s cura %d puntos de salud a %s!\n", attacker->name, -points, target->name);
+		printf("%s heals %d health points to %s!\n", attacker->name, -points, target->name);
 	else
-		printf("�El ataque de %s no afecta a %s!\n", attacker->name, target->name);
+		printf("The attack of %s doesn't affect to %s!\n", attacker->name, target->name);
 }
 
 static void battle_ability_effect_fixed_damage(Character* attacker, Character* target, const Ability* ability, bool critical_hit)
@@ -93,11 +93,11 @@ static void battle_ability_effect_fixed_damage(Character* attacker, Character* t
 
 	int damage = battle_damage_character(attacker, target_def, points, element);
 	if (damage > 0)
-		printf("�%s causa %d puntos de da�o a %s!\n", attacker->name, points, target->name);
+		printf("%s deals %d damage point to %s!\n", attacker->name, points, target->name);
 	else if (damage < 0)
-		printf("�%s cura %d puntos de salud a %s!\n", attacker->name, -points, target->name);
+		printf("%s heals %d health points to %s!\n", attacker->name, -points, target->name);
 	else
-		printf("�El ataque de %s no afecta a %s!\n", attacker->name, target->name);
+		printf("The attack of %s doesn't affect to %s!\n", attacker->name, target->name);
 }
 
 static void battle_ability_effect_normal_heal(Character* attacker, const Ability* ability, bool critical_hit)
@@ -109,9 +109,9 @@ static void battle_ability_effect_normal_heal(Character* attacker, const Ability
 
 	int heal = battle_heal_character(attacker, points);
 	if (heal > 0)
-		printf("�%s se cura %d puntos de salud!\n", attacker->name, points);
+		printf("%s heals %d health points!\n", attacker->name, points);
 	else
-		printf("%s no se ha curado nada\n", attacker->name);
+		printf("%s has not healed!\n", attacker->name);
 }
 
 static void battle_ability_effect_fixed_heal(Character* attacker, const Ability* ability, bool critical_hit)
@@ -120,9 +120,9 @@ static void battle_ability_effect_fixed_heal(Character* attacker, const Ability*
 
 	int heal = battle_heal_character(attacker, points);
 	if (heal > 0)
-		printf("�%s se cura %d puntos de salud!\n", attacker->name, points);
+		printf("%s heals %d health points!\n", attacker->name, points);
 	else
-		printf("%s no se ha curado nada\n", attacker->name);
+		printf("%s has not healed\n", attacker->name);
 }
 
 static void battle_ability_effect_stat_modification(Character* attacker, Character* target, const Ability* ability, bool critical_hit)
@@ -136,16 +136,16 @@ static void battle_ability_effect_stat_modification(Character* attacker, Charact
 
 	if (amount == 0)
 	{
-		printf("No ha ocurrido nada\n");
+		printf("Nothing has happened\n");
 		return;
 	}
 
 	stats_mod_add(&character->stats_mods, stat, amount);
 
 	if(amount > 0)
-		printf("%s de %s ha subido %d puntos", stats_name(stat), character->name, amount);
+		printf("%s of %s has increased %d points", stats_name(stat), character->name, amount);
 	else
-		printf("%s de %s ha bajado %d puntos", stats_name(stat), character->name, -amount);
+		printf("%s of %s has descreased %d points", stats_name(stat), character->name, -amount);
 }
 
 static void battle_ability_effect_custom(Character* attacker, Character* target, const Ability* ability, bool critical_hit)
@@ -157,13 +157,13 @@ static void battle_ability_effect_custom(Character* attacker, Character* target,
 		const Ability* past_ability = abilities_stack_get_k(&attacker->abilities_stack, k);
 		if (past_ability == NULL)
 		{
-			printf("No ha ocurrido nada\n");
+			printf("Nothing has happened\n");
 			return;
 		}
 
 		if (past_ability->effect.type == ABILITY_EFFECT_TYPE_CUSTOM && past_ability->effect.custom_id == CUSTOM_ABILITY_EFFECT_ID_TIME_HIT)
 		{
-			printf("No ha ocurrido nada\n");
+			printf("Nothing has happened\n");
 			return;
 		}
 
@@ -171,7 +171,7 @@ static void battle_ability_effect_custom(Character* attacker, Character* target,
 	}
 	else
 	{
-		printf("No ha ocurrido nada\n");
+		printf("Nothing has happened\n");
 	}
 }
 
@@ -200,7 +200,7 @@ static void battle_print_player_ability(Battle* battle, CharacterAbility ability
 	const Ability* ab = &battle->player->model->abilities[ability];
 	printf("%d: %s", option, ab->name);
 	if (ab->required_mp > 0)
-		printf(" [Require %d de m�gia]", ab->required_mp);
+		printf(" [Requires %d of magic]", ab->required_mp);
 	printf("\n");
 }
 
@@ -269,17 +269,17 @@ static CharacterAbility battle_select_player_ability(Battle* battle)
 	int option = 0;
 	while (option < 1 && option > 4)
 	{
-		printf("�Qu� movimiento quieres usar?\n");
+		printf("Which movement do you want to use?\n");
 		for (int i = 0; i < NUM_ABILITIES_PER_CHARACTER; i++)
 			battle_print_player_ability(battle, i, i + 1);
 
 		option = read_option();
 
 		if (option < 1 && option > 4)
-			printf("Opci�n no v�lida\n");
+			printf("Invalid option\n");
 		else if (!battle_can_use_ability(player, option - 1))
 		{
-			printf("No tienes suficiente m�gia para usar este movimiento\n");
+			printf("You don't have enough magic\n");
 			option = 0;
 		}
 	}
@@ -326,8 +326,8 @@ static void battle_print_characters_state(Battle* battle)
 	int enemy_hp = stats_get(&battle->enemy->model->stats, STAT_HEALTH_POINTS);
 	int enemy_hp_per = (int)(enemy_cur_hp / ((float)enemy_hp) * 100.0f);
 
-	printf("[ENEMY]\n%s\nSalud: %d%%\n\n", battle->enemy->name, enemy_hp_per);
-	printf("[PLAYER]\n%s\nnSalud: %d/%d\nMagia: %d/%d\n\n", battle->player->name, player_cur_hp, player_hp, player_cur_mp, player_mp);
+	printf("[ENEMY]\n%s\nHP: %d%%\n\n", battle->enemy->name, enemy_hp_per);
+	printf("[PLAYER]\n%s\nHP: %d/%d\nMagic: %d/%d\n\n", battle->player->name, player_cur_hp, player_hp, player_cur_mp, player_mp);
 }
 
 static void battle_loop(Battle* battle)
@@ -342,14 +342,14 @@ static void battle_loop(Battle* battle)
 	}
 
 	if (battle_state(battle) == BATTLE_STATE_PLAYER_WIN)
-		printf("�Enemigo %s ha sido derrotado!\n�%s gana la batalla!\n", battle->enemy->name, battle->player->name);
+		printf("The enemy %s has been defeated!\n%s wins the battle!\n", battle->enemy->name, battle->player->name);
 	else
-		printf("�Enemigo %s ha vencido a %s!\n�%s pierde la batalla!\n", battle->enemy->name, battle->player->name, battle->player->name);
+		printf("The enemy %s has defeated  %s!\n%s looses the battle!\n", battle->enemy->name, battle->player->name, battle->player->name);
 }
 
 BattleResult run_battle(Character* player, Character* enemy)
 {
-	printf("�%s quiere luchar!\n\n", enemy->name);
+	printf("%s wants to fight!\n\n", enemy->name);
 
 	Battle battle;
 	battle_init(&battle, player, enemy);
