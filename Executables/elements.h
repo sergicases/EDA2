@@ -1,8 +1,8 @@
-// Prevent multiple inclusions of this header file
+// Prevents multiple inclusions of this header file
 #ifndef ELEMENTS_H
 #define ELEMENTS_H
 
-// Include the commons header file
+// Includes the commons header file
 #include "commons.h"
 
 // Enumeration for different elements

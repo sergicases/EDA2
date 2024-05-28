@@ -236,8 +236,16 @@
 
     "scenarios": [
         {
-            "name": "Midgard",
-            "description": "Bla bla bla...",
+            "name": "The Forgotten Temple",
+            "description": "Our main character finds himself in the year 1120, looking for an antique relic, the WhisperStone. 
+            The WhisperStone is said to have been forged by celestial beings during a long-forgotten cosmic alignment. Its 
+            crystalline core pulses with ethereal energy, granting its wielder the power to manipulate time and space. Legends 
+            speak of lost civilizations that harnessed its might for both creation and destruction. The Scepter’s whereabouts 
+            remain shrouded in secrecy, hidden within labyrinthine catacombs or atop windswept peaks. The last traces place him 
+            in the mysterious Forgotten Temple, The Veiled Sanctum of Zephyr’s Embrace, hidden deep within a dense jungle. 
+            As you step through the temple’s ancient portal, you find yourself in a parallel timeline. The air crackles with 
+            energy, and the walls whisper forgotten secrets. What mysteries lie within this ancient sanctuary, and what role will 
+            you play in unraveling them?",
             "decisions": [
                 {
                     "question_text": "Question of decision...",
@@ -259,8 +267,46 @@
             ]
         },
         {
-            "name": "Kalm",
-            "description": "Bla bla bla... Pero esta vez en Kalm",
+            "name": "The Steam City",
+            "description": "You emerge from the temple into a bustling city powered by steam technology. The year is 1887, 
+            but something is amiss. The city’s clock tower controls time itself, and it’s malfunctioning. Citizens vanish, 
+            and reality warps unpredictably.",
+            "decisions": [
+                {
+                    "question_text": "Question of decision 1... Pero de Kalm",
+                    "options": [
+                        {
+                            "response_text": "Respuesta 1 de la decision 1 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 1 de la decision 1 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 1 de la decision 1 de kalm",
+                            "enemies": ["GuardHound", "GuardHound"]
+                        }
+                    ]
+                },
+                {
+                    "question_text": "Question of decision 2... de Kalm",
+                    "options": [
+                        {
+                            "response_text": "Respuesta 1 de la decision 2 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 1 de la decision 2 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 1 de la decision 2 de kalm",
+                            "enemies": ["Blugu", "GuardHound"]
+                        },
+                        {
+                            "response_text": "Respuesta 2 de la decision 2 de kalm",
+                            "narrative_before_battle_text": "Antes de la batalla 2 de la decision 2 de kalm",
+                            "narrative_after_battle_text": "Despues de la batalla 2 de la decision 2 de kalm",
+                            "enemies": ["Smogger", "Smogger"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "The Quantum Forest",
+            "description": "The next portal transports you to a forest where quantum particles behave erratically. Reality 
+            splits into infinite branches. You meet Elara, a quantum physicist trapped here. She seeks a way back to her own 
+            timeline.",
             "decisions": [
                 {
                     "question_text": "Question of decision 1... Pero de Kalm",

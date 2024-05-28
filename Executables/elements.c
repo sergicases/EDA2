@@ -1,6 +1,6 @@
 #include "elements.h"
 
-// Define string representations for element types
+// Defines string representations for element types
 #define ELEMENT_NAME_NORMAL "normal"
 #define ELEMENT_NAME_FIRE "fire"
 #define ELEMENT_NAME_ICE "ice"
@@ -11,17 +11,17 @@
 #define ELEMENT_NAME_WIND "wind"
 #define ELEMENT_NAME_HOLY "holy"
 
-// Convert a JSON object to an Element enum
+// Converts a JSON object to an Element enum
 Element element_from_json(cJSON* json)
 {
-    // Return normal element if JSON is NULL
+    // Returns normal element if JSON is NULL
     if (json == NULL)
         return ELEMENT_NORMAL;
 
-    // Check if JSON is a number
+    // Checks if JSON is a number
     if (cJSON_IsNumber(json))
     {
-        // Validate and return the element value
+        // Validates and returns the element value
         switch (json->valueint)
         {
             case ELEMENT_NORMAL:
@@ -36,10 +36,10 @@ Element element_from_json(cJSON* json)
                 return json->valueint;
         }
     }
-    // Check if JSON is a string
+    // Checks if JSON is a string
     else if (cJSON_IsString(json))
     {
-        // Compare strings and return the corresponding element
+        // Compares strings and return the corresponding element
         if (strcmp(json->valuestring, ELEMENT_NAME_NORMAL) == 0) return ELEMENT_NORMAL;
         if (strcmp(json->valuestring, ELEMENT_NAME_FIRE) == 0) return ELEMENT_FIRE;
         if (strcmp(json->valuestring, ELEMENT_NAME_ICE) == 0) return ELEMENT_ICE;
@@ -51,14 +51,14 @@ Element element_from_json(cJSON* json)
         if (strcmp(json->valuestring, ELEMENT_NAME_HOLY) == 0) return ELEMENT_HOLY;
     }
 
-    // Return normal element if JSON does not match any criteria
+    // Returns normal element if JSON does not match any criteria
     return ELEMENT_NORMAL;
 }
 
-// Convert an Element enum to a JSON object
+// Converts an Element enum to a JSON object
 cJSON* element_to_json(Element element)
 {
-    // Return the corresponding string representation of the element
+    // Returns the corresponding string representation of the element
     switch (element)
     {
         case ELEMENT_NORMAL: return cJSON_CreateString(ELEMENT_NAME_NORMAL);
@@ -77,24 +77,24 @@ cJSON* element_to_json(Element element)
     }
 }
 
-// Define string representations for element effectiveness types
+// Defines string representations for element effectiveness types
 #define ELEMENT_EFFECTIVENESS_NAME_WEAK "weak"
 #define ELEMENT_EFFECTIVENESS_NAME_NORMAL "normal"
 #define ELEMENT_EFFECTIVENESS_NAME_RESISTANT "resistant"
 #define ELEMENT_EFFECTIVENESS_NAME_IMMUNE "immune"
 #define ELEMENT_EFFECTIVENESS_NAME_ABSORB "absorb"
 
-// Convert a JSON object to an ElementEffectiveness enum
+// Converts a JSON object to an ElementEffectiveness enum
 ElementEffectiveness element_effectiveness_from_json(const cJSON* json)
 {
-    // Return normal effectiveness if JSON is NULL
+    // Returns normal effectiveness if JSON is NULL
     if (json == NULL)
         return ELEMENT_EFFECTIVENESS_NORMAL;
 
-    // Check if JSON is a number
+    // Checks if JSON is a number
     if (cJSON_IsNumber(json))
     {
-        // Validate and return the effectiveness value
+        // Validates and return the effectiveness value
         switch (json->valueint)
         {
             case ELEMENT_EFFECTIVENESS_WEAK:
@@ -105,10 +105,10 @@ ElementEffectiveness element_effectiveness_from_json(const cJSON* json)
                 return json->valueint;
         }
     }
-    // Check if JSON is a string
+    // Checks if JSON is a string
     else if (cJSON_IsString(json))
     {
-        // Compare strings and return the corresponding effectiveness
+        // Compares strings and returns the corresponding effectiveness
         if (strcmp(json->valuestring, ELEMENT_EFFECTIVENESS_NAME_WEAK) == 0) return ELEMENT_EFFECTIVENESS_WEAK;
         if (strcmp(json->valuestring, ELEMENT_EFFECTIVENESS_NAME_NORMAL) == 0) return ELEMENT_EFFECTIVENESS_NORMAL;
         if (strcmp(json->valuestring, ELEMENT_EFFECTIVENESS_NAME_RESISTANT) == 0) return ELEMENT_EFFECTIVENESS_RESISTANT;
@@ -116,14 +116,14 @@ ElementEffectiveness element_effectiveness_from_json(const cJSON* json)
         if (strcmp(json->valuestring, ELEMENT_EFFECTIVENESS_NAME_ABSORB) == 0) return ELEMENT_EFFECTIVENESS_ABSORB;
     }
 
-    // Return normal effectiveness if JSON does not match any criteria
+    // Returns normal effectiveness if JSON does not match any criteria
     return ELEMENT_EFFECTIVENESS_NORMAL;
 }
 
-// Convert an ElementEffectiveness enum to a JSON object
+// Converts an ElementEffectiveness enum to a JSON object
 cJSON* element_effectiveness_to_json(ElementEffectiveness effectiveness)
 {
-    // Return the corresponding string representation of the effectiveness
+    // Returns the corresponding string representation of the effectiveness
     switch (effectiveness)
     {
         case ELEMENT_EFFECTIVENESS_WEAK: return cJSON_CreateString(ELEMENT_EFFECTIVENESS_NAME_WEAK);
@@ -138,7 +138,7 @@ cJSON* element_effectiveness_to_json(ElementEffectiveness effectiveness)
     }
 }
 
-// Initialize an Effectiveness structure with default values
+// Initializes an Effectiveness structure with default values
 void effectiveness_init(Effectiveness* data)
 {
     data->normal = ELEMENT_EFFECTIVENESS_NORMAL;
@@ -152,7 +152,7 @@ void effectiveness_init(Effectiveness* data)
     data->holy = ELEMENT_EFFECTIVENESS_NORMAL;
 }
 
-// Copy the contents of one Effectiveness structure to another
+// Copies the contents of one Effectiveness structure to another
 void effectiveness_copy(Effectiveness* dest, const Effectiveness* source)
 {
     dest->normal = source->normal;
@@ -166,17 +166,17 @@ void effectiveness_copy(Effectiveness* dest, const Effectiveness* source)
     dest->holy = source->holy;
 }
 
-// Populate an Effectiveness structure from a JSON object
+// Populates an Effectiveness structure from a JSON object
 bool effectiveness_from_json(Effectiveness* effectiveness, const cJSON* json)
 {
-    // Initialize with default values if JSON is NULL or not an object
+    // Initializes with default values if JSON is NULL or not an object
     if (json == NULL || !cJSON_IsObject(json))
     {
         effectiveness_init(effectiveness);
         return false;
     }
 
-    // Parse JSON object and populate the Effectiveness structure
+    // Parses JSON object and populates the Effectiveness structure
     effectiveness->normal = element_effectiveness_from_json(cJSON_GetObjectItemCaseSensitive(json, "normal"));
     effectiveness->fire = element_effectiveness_from_json(cJSON_GetObjectItemCaseSensitive(json, "fire"));
     effectiveness->ice = element_effectiveness_from_json(cJSON_GetObjectItemCaseSensitive(json, "ice"));
@@ -190,7 +190,7 @@ bool effectiveness_from_json(Effectiveness* effectiveness, const cJSON* json)
     return true;
 }
 
-// Convert an Effectiveness structure to a JSON object
+// Converts an Effectiveness structure to a JSON object
 cJSON* effectiveness_to_json(const Effectiveness* effectiveness)
 {
     cJSON* json = cJSON_CreateObject();
@@ -206,7 +206,7 @@ cJSON* effectiveness_to_json(const Effectiveness* effectiveness)
     return json;
 }
 
-// Get the effectiveness for a specific element
+// Gets the effectiveness for a specific element
 ElementEffectiveness effectiveness_get_effectiveness_of_normal(const Effectiveness* data) { return data->normal; }
 ElementEffectiveness effectiveness_get_effectiveness_of_fire(const Effectiveness* data) { return data->fire; }
 ElementEffectiveness effectiveness_get_effectiveness_of_ice(const Effectiveness* data) { return data->ice; }
@@ -217,7 +217,7 @@ ElementEffectiveness effectiveness_get_effectiveness_of_water(const Effectivenes
 ElementEffectiveness effectiveness_get_effectiveness_of_wind(const Effectiveness* data) { return data->wind; }
 ElementEffectiveness effectiveness_get_effectiveness_of_holy(const Effectiveness* data) { return data->holy; }
 
-// Validate the effectiveness value to ensure it is within range
+// Validates the effectiveness value to ensure it is within range
 static ElementEffectiveness validate_effectiveness(ElementEffectiveness effectiveness)
 {
     if(effectiveness < ELEMENT_EFFECTIVENESS_WEAK) return ELEMENT_EFFECTIVENESS_WEAK;
@@ -225,7 +225,7 @@ static ElementEffectiveness validate_effectiveness(ElementEffectiveness effectiv
     return effectiveness;
 }
 
-// Set the effectiveness for a specific element
+// Sets the effectiveness for a specific element
 void effectiveness_set_effectiveness_of_normal(Effectiveness* data, ElementEffectiveness effectiveness) { data->normal = validate_effectiveness(effectiveness); }
 void effectiveness_set_effectiveness_of_fire(Effectiveness* data, ElementEffectiveness effectiveness) { data->fire = validate_effectiveness(effectiveness); }
 void effectiveness_set_effectiveness_of_ice(Effectiveness* data, ElementEffectiveness effectiveness) { data->ice = validate_effectiveness(effectiveness); }
@@ -236,10 +236,10 @@ void effectiveness_set_effectiveness_of_water(Effectiveness* data, ElementEffect
 void effectiveness_set_effectiveness_of_wind(Effectiveness* data, ElementEffectiveness effectiveness) { data->wind = validate_effectiveness(effectiveness); }
 void effectiveness_set_effectiveness_of_holy(Effectiveness* data, ElementEffectiveness effectiveness) { data->holy = validate_effectiveness(effectiveness); }
 
-// Get the effectiveness of a given element from the Effectiveness structure
+// Gets the effectiveness of a given element from the Effectiveness structure
 ElementEffectiveness effectiveness_get_effectiveness_of(const Effectiveness* data, Element element)
 {
-    // Return the corresponding effectiveness based on the element type
+    // Returns the corresponding effectiveness based on the element type
     switch (element)
     {
         case ELEMENT_NORMAL: return effectiveness_get_effectiveness_of_normal(data);
@@ -253,15 +253,15 @@ ElementEffectiveness effectiveness_get_effectiveness_of(const Effectiveness* dat
         case ELEMENT_HOLY: return effectiveness_get_effectiveness_of_holy(data);
     }
 
-    // Print error and return normal effectiveness if element is invalid
+    // Prints error and returns normal effectiveness if element is invalid
     printf("[ERROR]: Invalid Element\n");
     return ELEMENT_EFFECTIVENESS_NORMAL;
 }
 
-// Set the effectiveness of a given element in the Effectiveness structure
+// Sets the effectiveness of a given element in the Effectiveness structure
 void effectiveness_set_effectiveness_of(Effectiveness* data, Element element, ElementEffectiveness effectiveness)
 {
-    // Set the corresponding effectiveness based on the element type
+    // Sets the corresponding effectiveness based on the element type
     switch (element)
     {
         case ELEMENT_NORMAL: effectiveness_set_effectiveness_of_normal(data, effectiveness); break;

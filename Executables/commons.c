@@ -4,24 +4,24 @@
 // Include the standard argument library for handling variable argument functions
 #include "stdarg.h"
 
-// Function to generate a random integer between 0 and max-1
+// Function that generates a random integer between 0 and max-1
 int random_int(int max)
 {
     // Static variable to ensure random seed is initialized only once
     static bool is_random_init = false;
     
-    // Initialize the random seed if not already done
+    // Initializes the random seed if not already done
     if (!is_random_init)
     {
         srand((unsigned int)time(NULL));
         is_random_init = true;
     }
 
-    // If max is less than or equal to 1, return 0 as there's no range to generate a random number
+    // If max is less than or equal to 1, returns 0 as there's no range to generate a random number
     if (max <= 1)
         return 0;
 
-    // Generate and return a random number between 0 and max-1
+    // Generates and return a random number between 0 and max-1
     return rand() % max;
 }
 
@@ -29,7 +29,7 @@ int random_int(int max)
 void consume_stdin()
 {
     char c;
-    // Read characters from the input stream until a newline or EOF is encountered
+    // Reads characters from the input stream until a newline or EOF is encountered
     while ((c = getchar()) && (c != '\n') && (c != EOF));
 }
 
@@ -37,7 +37,7 @@ void consume_stdin()
 int read_option(void)
 {
     char buffer[64];
-    // Read a line of input from stdin into the buffer
+    // Reads a line of input from stdin into the buffer
     if (!fgets(buffer, 64, stdin))
         return -1;
 
@@ -46,7 +46,7 @@ int read_option(void)
     if (sscanf(buffer, "%d", &value) != 1)
         return -1;
 
-    // Return the parsed integer value
+    // Returns the parsed integer value
     return value;
 }
 
@@ -65,15 +65,15 @@ size_t string_hash(size_t hashtable_length, const char* str)
 // Function to print an error message with variable arguments
 void print_error(const char* message, ...)
 {
-    // Initialize the variable argument list
+    // Initializes the variable argument list
     va_list args;
     va_start(args, message);
 
-    // Print the error message prefix
+    // Prints the error message prefix
     printf("[ERROR]: ");
-    // Print the formatted error message
+    // Prints the formatted error message
     vprintf(message, args);
 
-    // Clean up the variable argument list
+    // Cleans up the variable argument list
     va_end(args);
 }
