@@ -252,14 +252,12 @@
                     "options": [
                         {
                             "response_text": "Fight them",
-                            "narrative_before_battle_text": "
-                            In the heart of the ancient Forgotten Temple, the warrior prepared for battle. The air grew cold and heavy as shadows flickered around him. From the depths of the temple emerged the Temporal Wraiths, ruthless creatures born from the fractures of time itself.
+                            "narrative_before_battle_text": "In the heart of the ancient Forgotten Temple, the warrior prepared for battle. The air grew cold and heavy as shadows flickered around him. From the depths of the temple emerged the Temporal Wraiths, ruthless creatures born from the fractures of time itself.
                             Their forms shifted and twisted, phasing in and out of reality, eyes glowing with malevolent intent. The warrior's grip tightened on his sword, his resolve unyielding. The temple walls echoed with the whispers of lost eras, a haunting prelude to the imminent clash.
                             Standing amidst the swirling shadows and the echoes of time, the warrior steeled himself. The battle against the Temporal Wraiths was about to begin, and he was ready to face the ruthless creatures that threatened the sanctity of the ancient sanctuary.",
                             "narrative_after_battle_text": "The warrior's blade flashed through the dim light of the Forgotten Temple, striking down the Temporal Wraiths with precision and strength. Each swing cut through their shifting forms, dispersing the malevolent energy that bound them.
                             The battle was fierce, but the warrior's resolve never wavered. One by one, the Wraiths fell, their ethereal bodies dissipating into the shadows. The whispers of lost eras grew silent, the temple's air clearing as the last Wraith was vanquished.
-                            With the Temporal Wraiths defeated, the warrior stood victorious amidst the ancient sanctuary. The Forgotten Temple was restored to its serene state, the fractures of time healed by his unwavering courage and skill. He sheathed his sword, ready to continue his journey, leaving the temple in peace.
-                            ",
+                            With the Temporal Wraiths defeated, the warrior stood victorious amidst the ancient sanctuary. The Forgotten Temple was restored to its serene state, the fractures of time healed by his unwavering courage and skill. He sheathed his sword, ready to continue his journey, leaving the temple in peace.",
                             "enemies": ["Temporal Wraiths"]
                         },
                         {
