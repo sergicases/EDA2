@@ -1,11 +1,11 @@
-// Prevent multiple inclusions of this header file
+// Prevents multiple inclusions of this header file
 #ifndef DECISIONS_H
 #define DECISIONS_H
 
-// Include the options header file
+// Includes the options header file
 #include "options.h"
 
-// Define a structure to represent a decision
+// Defines a structure to represent a decision
 typedef struct {
     char question_text[TEXT_LEN]; // The text of the question for the decision
     Option* options;              // Pointer to an array of options for the decision
