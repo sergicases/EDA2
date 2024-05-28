@@ -251,7 +251,7 @@ void character_copy(Character* dest, const Character* source)
 static void read_ability_name_input(AbilityPool* abilities_pool, char abilities[NUM_ABILITIES_PER_CHARACTER][NAMES_STR_LEN], size_t ability_idx)
 {
     char message[150];
-    sprintf(message, "Escribe el nombre de la habilidad n�mero %d para tu personaje (debe ser una de la lista anterior)", (int)(ability_idx + 1));
+    sprintf(message, "Write the name of the ability %d for your character (must be in the previous list)", (int)(ability_idx + 1));
 
     while (true)
     {
@@ -259,7 +259,7 @@ static void read_ability_name_input(AbilityPool* abilities_pool, char abilities[
         if (ability_exists(abilities_pool, abilities[ability_idx]))
             break;
 
-        printf("El nombre de habilidad que has escrito no existe. Prueba de nuevo\n");
+        printf("The name you selected doesn't exist. Try another one\n");
     }
 }
 
@@ -270,15 +270,15 @@ void menu_create_player_character(Character* player_character, AbilityPool* abil
     Effectiveness elements;
     char abilities[NUM_ABILITIES_PER_CHARACTER][NAMES_STR_LEN];
 
-    read_string_input("Escribe el nombre de tu personaje (m�ximo 64 caracteres):", name, NAMES_STR_LEN);
+    read_string_input("Write the name of your character:", name, NAMES_STR_LEN);
 
     stats_init(&stats);
-    stats_set_hp(&stats, read_int_input("Escribe cuantos puntos de salud tendr� tu personaje:"));
-    stats_set_mp(&stats, read_int_input("Escribe cuantos puntos de magia tendr� tu personaje:"));
-    stats_set_atk(&stats, read_int_input("Escribe el valor de Ataque F�sico que tendr� tu personaje:"));
-    stats_set_def(&stats, read_int_input("Escribe el valor de Defensa F�sica que tendr� tu personaje:"));
-    stats_set_m_atk(&stats, read_int_input("Escribe el valor de Ataque M�gico que tendr� tu personaje:"));
-    stats_set_m_def(&stats, read_int_input("Escribe el valor de Defensa M�gica que tendr� tu personaje:"));
+    stats_set_hp(&stats, read_int_input("How many hp:"));
+    stats_set_mp(&stats, read_int_input("How many magic points:"));
+    stats_set_atk(&stats, read_int_input("How many attack points:"));
+    stats_set_def(&stats, read_int_input("How many defense points:"));
+    stats_set_m_atk(&stats, read_int_input("How many magic attack points:"));
+    stats_set_m_def(&stats, read_int_input("How many magic defence points:"));
 
     effectiveness_init(&elements);
 
@@ -293,7 +293,7 @@ void menu_create_player_character(Character* player_character, AbilityPool* abil
 
     character_init(player_character, name, model, true);
 
-    printf("Personaje creado con �xito!\n");
+    printf("Character created successfuly!\n");
 }
 
 
