@@ -254,13 +254,13 @@
                             "response_text": "Fight them",
                             "narrative_before_battle_text": "",
                             "narrative_after_battle_text": "",
-                            "enemies": []
+                            "enemies": ["Temporal Wraiths"]
                         },
                         {
-                            "response_text": "",
+                            "response_text": "Save yourself",
                             "narrative_before_battle_text": "",
                             "narrative_after_battle_text": "",
-                            "enemies": []
+                            "enemies": ["Temporal Wraiths"]
                         }
                     ]
                 }
@@ -285,7 +285,7 @@
                             As the gears began to turn smoothly once more, the city slowly returned to normalcy. Streets straightened, buildings stabilized, and citizens reappeared, their grateful cheers filling the air.
                             With the city saved and time restored, the warrior sheathed his sword, acknowledging the thanks of the citizens. His duty fulfilled, he turned away from the clock tower, ready to continue his journey, knowing that he had once again fought for the greater good and emerged victorious.",
                             "enemies": ["Cog Knight"]
-                        }
+                        },
                         {
                             "response_text": "Save yourself",
                             "narrative_before_battle_text": "
@@ -375,4 +375,4 @@
             ]
         }
     ]
-}
+},
