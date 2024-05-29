@@ -26,10 +26,10 @@ static void menu_main(Scenario* scenarios, size_t num_scenarios, AbilityPool* ab
 		{
 			Character player_character;
 
-			printf("Antes de comenzar la historia, vamos a construir tu personaje.\n\n");
+			printf("Let's choose the main character.\n\n");
 			menu_create_player_character(&player_character, abilities_pool);
 
-			printf("\nAhora podemos comenzar la partida!\n\n");
+			printf("\nW can now start the game!\n\n");
 			menu_scenario(&scenarios[0], &player_character);
 
 			character_destroy(&player_character);
