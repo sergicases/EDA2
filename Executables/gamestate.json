@@ -1,0 +1,267 @@
+{
+    "abilities": [
+        {
+            "name": "BasicSwordSwing",
+            "single_use": false,
+            "mp": 0,
+            "effect": {
+                "type": "normal_damage",
+                "element": "normal",
+                "power": 15
+            }
+        },
+        {
+            "name": "HeatSwordSwing",
+            "single_use": true,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "fire",
+                "power": 9
+            }
+        },
+        {
+            "name": "ParalyzingSpell",
+            "single_use": false,
+            "mp": 5,
+            "effect": {
+                "type": "stat_mod",
+                "element": "ice",
+                "power": 8
+            }
+        },
+        {
+            "name": "SquezzySwordSwing",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "poison",
+                "power": 9
+            }
+        },
+        {
+            "name": "AquaticSwordSwing",
+            "single_use": false,
+            "mp": 4,
+            "effect": {
+                "type": "normal_damage",
+                "element": "water",
+                "power": 9
+            }
+        },
+        {
+            "name": "SpineShield",
+            "single_use": false,
+            "mp": 6,
+            "effect": {
+                "type": "normal_heal",
+                "power": 12
+            }
+        },
+        {
+            "name": "PassiveRegeneration",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "atk",
+                "modification": 7,
+                "to_enemy": false
+            }
+        },
+        {
+            "name": "ExtraLife",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "m_atk",
+                "modification": 7,
+                "to_enemy": false
+            }
+        },
+        {
+            "name": "WeakeningSpell",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "def",
+                "modification": -5,
+                "to_enemy": true
+            }
+        },
+        {
+            "name": "ShieldDestroyer",
+            "single_use": false,
+            "mp": 8,
+            "effect": {
+                "type": "stat_mod",
+                "stat": "m_def",
+                "modification": -5,
+                "to_enemy": true
+            }
+        },
+        {
+            "name": "TimeStrike",
+            "single_use": true,
+            "mp": 0,
+            "effect": {
+                "type": "custom",
+                "custom_id": 0
+            }
+        },
+        {
+            "name": "Splash",
+            "single_use": false,
+            "mp": 3,
+            "effect": {
+                "type": "normal_damage",
+                "element": "water",
+                "power": 10
+            }
+        },
+        {
+            "name": "Pollution",
+            "single_use": false,
+            "mp": 6,
+            "effect": {
+                "type": "fixed_damage",
+                "element": "poison",
+                "fixed_value": 20
+            }
+        }
+    ],
+    "enemy_models": [
+        {
+            "name": "Temporal Wraiths",
+            "stats": {
+                "hp": 36,
+                "mp": 10,
+                "atk": 8,
+                "def": 4,
+                "m_atk": 5,
+                "m_def": 2
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "resistant",
+                "ice": "weak",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "weak",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["SquezzySwordSwing", "Pollution", "SpineShield", "Pollution"]
+        },
+        {
+            "name": "Cog Knight",
+            "stats": {
+                "hp": 32,
+                "mp": 15,
+                "atk": 4,
+                "def": 3,
+                "m_atk": 9,
+                "m_def": 5
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "immune",
+                "ice": "resistant",
+                "lightning": "weak",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "resistant",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["BasicSwordSwing", "BasicSwordSwing", "SpineShield", "SpineShield"]
+        },
+        {
+            "name": "Quantum Echoes",
+            "stats": {
+                "hp": 48,
+                "mp": 20,
+                "atk": 7,
+                "def": 4,
+                "m_atk": 7,
+                "m_def": 4
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "normal",
+                "ice": "normal",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "absorb",
+                "water": "normal",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["HeatSwordSwing", "HeatSwordSwing", "ParalyzingSpell", "ParalyzingSpell"]
+        },
+        {
+            "name": "Astral Sentinels",
+            "stats": {
+                "hp": 40,
+                "mp": 12,
+                "atk": 9,
+                "def": 5,
+                "m_atk": 6,
+                "m_def": 3
+            },
+            "elements": {
+                "normal": "normal",
+                "fire": "resistant",
+                "ice": "weak",
+                "lightning": "normal",
+                "earth": "normal",
+                "poison": "normal",
+                "water": "weak",
+                "wind": "normal",
+                "holy": "normal"
+            },
+            "abilities": ["HeatSwordSwing", "HeatSwordSwing", "SpineShield", "ParalyzingSpell"]
+        }
+    ],
+    "scenarios": [
+        {
+            "name": "The Forgotten Temple",
+            "description": "Our main character finds himself in the year 1120, looking for an antique relic, the WhisperStone. The WhisperStone is said to have been forged by celestial beings during a long-forgotten cosmic alignment. Its crystalline core pulses with ethereal energy, granting its wielder the power to manipulate time and space. Legends speak of lost civilizations that harnessed its might for both creation and destruction. The Scepter’s whereabouts remain shrouded in secrecy, hidden within labyrinthine catacombs or atop windswept peaks. The last traces place him in the mysterious Forgotten Temple, The Veiled Sanctum of Zephyr’s Embrace, hidden deep within a dense jungle. As you step through the temple’s ancient portal, you find yourself in a parallel timeline. The air crackles with energy, and the walls whisper forgotten secrets. What mysteries lie within this ancient sanctuary, and what role will you play in unraveling them?",
+            "decisions": [
+                {
+                    "question_text": "While walking through this mysterious temple, you start hearing voices, you look back and see Temporal Wraiths, ruthless creatures. Do you want to fight them or run?",
+                    "options": [
+                        {
+                            "response_text": "Fight them",
+                            "narrative_before_battle_text": "In the heart of the ancient Forgotten Temple, the warrior prepared for battle. The air grew cold and heavy as shadows flickered around him. From the depths of the temple emerged the Temporal Wraiths, ruthless creatures born from the fractures of time itself. Their forms shifted and twisted, phasing in and out of reality, eyes glowing with malevolent intent. The warrior's grip tightened on his sword, his resolve unyielding. The temple walls echoed with the whispers of lost eras, a haunting prelude to the imminent clash. Standing amidst the swirling shadows and the echoes of time, the warrior steeled himself. The battle against the Temporal Wraiths was about to begin, and he was ready to face the ruthless creatures that threatened the sanctity of the ancient sanctuary.",
+                            "narrative_after_battle_text": "The warrior's blade flashed through the dim light of the Forgotten Temple, striking down the Temporal Wraiths with precision and strength. Each swing cut through their shifting forms, dispersing the malevolent energy that bound them. The battle was fierce, but the warrior's resolve never wavered. One by one, the Wraiths fell, their ethereal bodies dissipating into the shadows from whence they came. As the last Wraith faded into nothingness, a profound silence settled over the temple. The air grew warmer, and the oppressive weight of the dark energy lifted. The warrior stood amidst the remnants of the battle, his breath steady, his spirit unbroken. He had vanquished the Temporal Wraiths, preserving the sanctity of the ancient sanctuary. With renewed determination, the warrior continued his journey through the Forgotten Temple, ready to face whatever challenges lay ahead.",
+                            "enemies": ["Temporal Wraiths"]
+                        },
+                        {
+                            "response_text": "Run",
+                            "narrative_after_battle_text": "The warrior's instinct for survival kicked in. Realizing the overwhelming power of the Temporal Wraiths, he made a swift decision to retreat. He turned and sprinted through the labyrinthine corridors of the Forgotten Temple, the echoes of the Wraiths' malevolent whispers chasing after him. The path was treacherous, with crumbling stone steps and hidden pitfalls, but his agility and determination kept him ahead of the looming threat. As he navigated the twists and turns, the oppressive aura of the Wraiths began to fade. The warrior's breath came in ragged gasps, but he pressed on, driven by the need to escape. Finally, he burst through a concealed exit, emerging into the dense jungle surrounding the temple. The eerie silence of the jungle was a stark contrast to the harrowing encounter within. The warrior paused to catch his breath, the adrenaline still coursing through his veins. He had escaped the Temporal Wraiths, but the memory of their haunting presence lingered. Determined to find another way to uncover the temple's secrets, the warrior resolved to return, better prepared for the challenges that awaited."
+                        }
+                    ]
+                },
+                {
+                    "question_text": "Continuing through the Forgotten Temple, you notice a strange door, the door of the Cog Knight, a formidable opponent. Do you want to fight or move on?",
+                    "options": [
+                        {
+                            "response_text": "Fight",
+                            "narrative_before_battle_text": "The warrior stood before the imposing door, sensing the formidable presence beyond. With a deep breath, he pushed it open, revealing the Cog Knight. This mechanical guardian, a relic of ancient engineering, whirred to life, gears and cogs clanking ominously. The Cog Knight's eyes glowed with a fierce light, and its armored form exuded an aura of unyielding strength. The warrior tightened his grip on his weapon, muscles coiled in readiness. The clash of metal echoed through the chamber as the warrior and the Cog Knight faced off. Sparks flew with each strike, the warrior's agility and skill pitted against the relentless precision of the mechanical foe. The battle was intense, a dance of blades and gears in the dimly lit chamber. Amidst the chaos, the warrior's determination burned bright, and he fought with every ounce of his strength. In the end, the Cog Knight's movements slowed, gears grinding to a halt. With one final, decisive blow, the warrior brought the mighty guardian down, its mechanical form collapsing into a heap of metal and wires. Breathing heavily, the warrior surveyed the fallen foe, a sense of triumph mingling with the lingering tension of the battle. The path was now clear, and the warrior pressed on, deeper into the mysteries of the Forgotten Temple.",
+                            "narrative_after_battle_text": "The warrior's blade clashed against the Cog Knight's armor, sparks flying with each strike. The ancient mechanical guardian fought with relentless precision, gears whirring and cogs grinding. The chamber echoed with the sounds of their fierce battle, a symphony of metal and determination. Despite the Cog Knight's formidable strength, the warrior's agility and skill gave him the upper hand. Each movement was calculated, each strike purposeful. Finally, with a powerful swing, the warrior's blade found a weak point, and the Cog Knight's movements slowed. Gears ground to a halt, and the guardian collapsed in a heap of metal and wires. Breathing heavily, the warrior stood victorious. The fallen foe lay before him, a testament to his strength and resolve. He had overcome the mechanical guardian, clearing the path ahead. With renewed determination, the warrior continued his journey through the Forgotten Temple, ready to face whatever challenges awaited."
+                        },
+                        {
+                            "response_text": "Move on",
+                            "narrative_after_battle_text": "The warrior's intuition warned him of the impending challenge. Recognizing the formidable presence of the Cog Knight beyond the door, he decided to move on. He silently stepped away, the mechanical guardian none the wiser. As he continued his journey through the Forgotten Temple, the warrior's mind raced with thoughts of the unseen challenges ahead. The temple's ancient walls whispered secrets of long-lost civilizations, and the warrior's resolve strengthened with each step. The decision to bypass the Cog Knight was a calculated one. The warrior knew that preserving his strength for the unknown trials that lay ahead was paramount. With a quiet determination, he pressed on, ready to uncover the temple's hidden secrets and face whatever dangers awaited."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
